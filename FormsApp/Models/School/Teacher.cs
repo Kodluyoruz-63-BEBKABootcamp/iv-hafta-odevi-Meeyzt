@@ -1,12 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
-namespace FormsApp.Models.School
+﻿namespace FormsApp.Models.School
 {
     public class Teacher
     {
+        public Teacher()
+        {
+
+        }
         public int TeacherID { get; set; }
         public string TeacherName { get; set; }
     }
