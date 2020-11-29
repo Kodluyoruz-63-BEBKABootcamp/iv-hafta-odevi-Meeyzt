@@ -7,7 +7,7 @@
 
         }
 
-        public void Create(int id,string studentName,Lesson lessons)
+        public Student Create(int id,string studentName,Lesson lessons)
         {
             Student student = new Student()
             {
@@ -15,6 +15,7 @@
                 StudentName = studentName,
                 lessons = lessons
             };
+            return student;
         }
     }
 }

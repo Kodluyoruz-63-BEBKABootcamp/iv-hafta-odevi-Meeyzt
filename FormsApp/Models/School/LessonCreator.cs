@@ -11,7 +11,7 @@ namespace FormsApp.Models.School
         {
 
         }
-        public void Create(int LessonID,string LessonName,Teacher teacher)
+        public Lesson Create(int LessonID,string LessonName,Teacher teacher)
         {
             Lesson lesson = new Lesson()
             {
@@ -19,6 +19,7 @@ namespace FormsApp.Models.School
                 LessonName = LessonName,
                 Teacher = teacher
             };
+            return lesson;
         }
     }
 }

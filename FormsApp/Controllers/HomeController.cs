@@ -10,6 +10,9 @@ namespace FormsApp.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        StudentCreator student = new StudentCreator();
+        LessonCreator lesson = new LessonCreator();
+        TeacherCreator teachercre = new TeacherCreator();
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -20,9 +23,18 @@ namespace FormsApp.Controllers
         {
             //UserCreation
             UserCreator userCreator = new UserCreator();
-            userCreator.Create(1, "Trumpet", "MAGA2023");
-            userCreator.Create(2, "KivancTTug", "Kivancgutiltat");
-            userCreator.Create(3, "B.MertYagci", "Nisa2020");
+            var Trumpet = userCreator.Create(1, "Trumpet", "MAGA2023");
+            var Kivanc = userCreator.Create(2, "KivancTTug", "Kivancgutiltat");
+            var Baris = userCreator.Create(3, "B.MertYagci", "Nisa2020");
+            
+            //Students Creation
+            var Mehmet =  student.Create(1, "Mehmet Yılmaz", lesson.Create(1, "Matematik", teachercre.Create(1, "Nurdane YAZICI")));
+            var Beyto = student.Create(2, "Beytullah Yusen", lesson.Create(2, "Türkçe", teachercre.Create(2, "Ahmet Hamdi TANPINAR")));
+            var Ahmet = student.Create(3, "Ahmet Kaydırak", lesson.Create(1, "Matematik", teachercre.Create(1, "Nurdane YAZICI")));
+
+
+
+
 
 
             return View();

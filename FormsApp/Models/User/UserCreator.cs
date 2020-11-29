@@ -11,7 +11,7 @@ namespace FormsApp.Models.User
         {
 
         }
-        public void Create(int userID, string username,string password)
+        public User Create(int userID, string username,string password)
         {
             User user = new User()
             {
@@ -19,6 +19,7 @@ namespace FormsApp.Models.User
                 Username = username,
                 Password = password
             };
+            return user;
         }
     }
 }
