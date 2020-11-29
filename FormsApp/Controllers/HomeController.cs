@@ -13,16 +13,18 @@ namespace FormsApp.Controllers
         StudentCreator student = new StudentCreator();
         LessonCreator lesson = new LessonCreator();
         TeacherCreator teachercre = new TeacherCreator();
+        UserCreator userCreator = new UserCreator();
+        
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
+        [HttpGet]
         public IActionResult Index()
         {
             //UserCreation
-            UserCreator userCreator = new UserCreator();
             var Trumpet = userCreator.Create(1, "Trumpet", "MAGA2023");
             var Kivanc = userCreator.Create(2, "KivancTTug", "Kivancgutiltat");
             var Baris = userCreator.Create(3, "B.MertYagci", "Nisa2020");
@@ -31,14 +33,11 @@ namespace FormsApp.Controllers
             var Mehmet =  student.Create(1, "Mehmet Yılmaz", lesson.Create(1, "Matematik", teachercre.Create(1, "Nurdane YAZICI")));
             var Beyto = student.Create(2, "Beytullah Yusen", lesson.Create(2, "Türkçe", teachercre.Create(2, "Ahmet Hamdi TANPINAR")));
             var Ahmet = student.Create(3, "Ahmet Kaydırak", lesson.Create(1, "Matematik", teachercre.Create(1, "Nurdane YAZICI")));
-
-
-
-
-
-
             return View();
         }
+        //(int studentID,string studentName,int lessonID,string lessonName,int teacherID,string teacherName )
+       
+
 
         public IActionResult Privacy()
         {
