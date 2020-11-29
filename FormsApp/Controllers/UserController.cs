@@ -1,47 +1,56 @@
 ﻿using FormsApp.Models.UserModels;
 using Microsoft.AspNetCore.Mvc;
+using FormsApp.Models.DomaninModels;
+using FormsApp.Models;
+using System;
 
 namespace FormsApp.Controllers
 {    
     public class UserController : Controller
     {
-        User users = new User();
-        UserCreator userCreator = new UserCreator();
-
+        Data dt = new Data();
         public IActionResult Register()
         {
+            initValues init = new initValues();
+            init.GetValues();
             return View();
         }
+
         [HttpPost]
         public IActionResult Register(string username, string password)
         {
+            int id = dt.users.Count - 1;
+
             //UserCreation
-            var Trumpet = userCreator.Create(1, username, password);
-            return Content("Congralations Register Successfull \n ID = " + Trumpet.UserID + " Username = " + Trumpet.Username + " Password = " + Trumpet.Password);
+            var x = new User() { UserID = id, Username = username, Password = password };
+            dt.users.Add(x);
+            return Content("Congralations Register Successfull \n ID = " + x.UserID + " Username = " + x.Username + " Password = " + x.Password);
         }
         [HttpGet]
         public IActionResult Login()
         {
+            
             return View();
         }
 
         [HttpPost]
         public IActionResult Login(string username, string password)
         {
-            if(username == "Trumpet" && password=="MAGA2023")
+            int x = 0;
+            foreach (var item in dt.users)
             {
-                return Content(username + " Hoşgeldin");
-            }else if (username == "KivancTTug" && password == "Kivancgutiltat")
-            {
-                return Content(username + " Hoşgeldin");
+                if(username==item.Username && password==item.Password)
+                {
+                    x = 1; 
+                    break;
+                }
             }
-            else if (username == "B.MertYagci" && password == "Nisa2020")
+            if (x==0)
             {
-                return Content(username + " Hoşgeldin");
-            }
-            else
+                return Content("Not found");
+            }else
             {
-                return Content("Not FOUND");
+                return Content("Congralations Login Successfull\n Hoşgeldin " + username);
             }
         }
     }
