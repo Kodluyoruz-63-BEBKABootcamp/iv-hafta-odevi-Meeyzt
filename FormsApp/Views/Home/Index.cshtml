@@ -1,27 +1,52 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<head>
-    <link href="~/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
-</head>
-<div>
-    <div class="text-center text-info" style="font-size:160%; width:auto; height:auto;">Hi, Welcome To register screen</div>
-    <div class="border" style="background:#696767;">
-        <div style="margin-left:20px; float:left;">
-            <label class="col-form-label-lg" style="color:white; opacity:75%; font-size:130%; padding-right:10px;">Kullanıcı Adı</label><br />
-            <label class="col-form-label-lg" style="color:white; opacity:75%; font-size:130%; padding-right:10px;">Şifre</label><br />
-            <label class="col-form-label-lg" style="color:white; opacity:75%; font-size:130%; padding-right:10px;">Kullanıcı Adı</label><br />
-            <label class="col-form-label-lg" style="color:white; opacity:75%; font-size:130%; padding-right:10px;">Kullanıcı Adı</label><br />
-            <label class="col-form-label-lg" style="color:white; opacity:75%; font-size:130%; padding-right:10px;">Kullanıcı Adı</label>
-        </div>
-        <div style="margin-left:40px;">
-            <div class="col-form-label-lg" style="padding-bottom:11px; padding-top:10px;">@Html.TextBox("ID")<br /></div>
-            <div class="col-form-label-lg" style="padding-bottom:11px; ">@Html.TextBox("ID")<br /></div>
-            <div class="col-form-label-lg" style="padding-bottom:11px;">@Html.TextBox("ID")<br /></div>
-            <div class="col-form-label-lg" style="padding-bottom:11px;">@Html.TextBox("ID")<br /></div>
-            <div class="col-form-label-lg" style="padding-bottom:11px;">@Html.TextBox("ID")<br /></div>
-        </div>
-       <button class="btn btn-success btn-lg" style="width:25%;" > Register</button>
-    </div>
 
+
+
+
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
+<!-- Button to open the modal login form -->
+<button onclick="document.getElementById('id01').style.display='block'">Giriş yap</button>
+
+<!-- The Modal -->
+<div id="id01" class="modal">
+    <span onclick="document.getElementById('id01').style.display='none'"
+          class="close" title="Close Modal">&times;</span>
+
+    <!-- Modal Content -->
+    <form class="modal-content animate" action="/action_page.php" method="post">
+        <div class="imgcontainer">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/7/70/User_icon_BLACK-01.png" style="width:100px; height:100px;" alt="Avatar" class="avatar">
+        </div>
+
+        <div class="container">
+            <label for="uname"><b>Kullanıcı Adı</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" required>
+
+            <label for="psw"><b>Şifre</b></label>
+            <input type="password" placeholder="Enter Password" name="psw" required>
+
+            <button type="submit">Login</button>
+            <label>
+                <input type="checkbox" checked="checked" name="remember"> Beni hatırla
+            </label>
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+    </form>
 </div>
+
