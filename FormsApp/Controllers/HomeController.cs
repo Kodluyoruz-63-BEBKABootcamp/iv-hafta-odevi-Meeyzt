@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using FormsApp.Models.User;
+using FormsApp.Models.School;
 
 namespace FormsApp.Controllers
 {
