@@ -5,10 +5,9 @@ using System.Threading.Tasks;
 
 namespace FormsApp.Models.School
 {
-    public class Teachers
+    public class Teacher
     {
         public int TeacherID { get; set; }
         public string TeacherName { get; set; }
-        public string Lesson { get; set; }
     }
 }

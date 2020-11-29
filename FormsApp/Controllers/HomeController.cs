@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using FormsApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using FormsApp.Models;
+using System.Diagnostics;
+using FormsApp.Models.User;
 
 namespace FormsApp.Controllers
 {
@@ -20,13 +17,19 @@ namespace FormsApp.Controllers
 
         public IActionResult Index()
         {
+            //UserCreation
+            UserCreator userCreator = new UserCreator();
+            userCreator.Create(1, "Trumpet", "MAGA2023");
+            userCreator.Create(2, "KivancTTug", "Kivancgutiltat");
+            userCreator.Create(3, "B.MertYagci", "Nisa2020");
+
 
             return View();
         }
 
         public IActionResult Privacy()
         {
-            return View();
+            return RedirectToAction(nameof(Index));
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
